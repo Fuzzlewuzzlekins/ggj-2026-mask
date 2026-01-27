@@ -1,36 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://bh1qwsnp1jxsx"]
+[gd_scene load_steps=2 format=3 uid="uid://bh1qwsnp1jxsx"]
 
-[ext_resource type="PackedScene" uid="uid://jqqu0tnxawit" path="res://player.tscn" id="1_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://delc71n0r8emn" path="res://platform.tscn" id="2_h2yge"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1bvp3"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0xm2m"]
+[ext_resource type="Script" uid="uid://g231i4237pl7" path="res://main.gd" id="1_ig7tw"]
 
 [node name="Main" type="Node"]
+script = ExtResource("1_ig7tw")
 
-[node name="Player" parent="." instance=ExtResource("1_0xm2m")]
-position = Vector2(501, 512)
+[node name="NewGameButton" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -184.0
+offset_top = -48.0
+offset_right = 184.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Start game (level 1)"
 
-[node name="Platform" parent="." instance=ExtResource("2_h2yge")]
-position = Vector2(182, 592)
-
-[node name="Platform2" parent="." instance=ExtResource("2_h2yge")]
-position = Vector2(744, 232)
-
-[node name="Platform3" parent="." instance=ExtResource("2_h2yge")]
-position = Vector2(448, 385)
-
-[node name="Floor" type="StaticBody2D" parent="."]
-position = Vector2(0, 768)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
-shape = SubResource("WorldBoundaryShape2D_1bvp3")
-
-[node name="Left Wall" type="StaticBody2D" parent="."]
-rotation = 1.5707964
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Left Wall"]
-shape = SubResource("WorldBoundaryShape2D_0xm2m")
+[connection signal="pressed" from="NewGameButton" to="." method="_on_new_game_button_pressed"]
