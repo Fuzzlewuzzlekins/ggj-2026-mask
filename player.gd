@@ -1,11 +1,20 @@
 extends CharacterBody2D
 
 signal reached_midlevel
+signal reached_exit
 
 var is_touching_midlevel_goal = false
+var cooldown_timer: SceneTreeTimer
+# TODO
+#var last_floor_time = -1.0
+#var last_jump_time = -1.0
 
 const SPEED = 400.0
 const JUMP_VELOCITY = -750.0
+const LEVEL_READY_COOLDOWN = 1.0
+# TODO
+#const MAX_JUMP_HOLD_TIME = 0.5
+#const COYOTE_TIME = 0.1
 
 
 func _ready() -> void:
@@ -14,15 +23,18 @@ func _ready() -> void:
 	set_collision_mask_value(1, true)
 	set_collision_layer_value(2, false)
 	set_collision_mask_value(2, false)
+	cooldown_timer = get_tree().create_timer(LEVEL_READY_COOLDOWN)
 
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
+		# TODO: implement Coyote Time
 		velocity += get_gravity() * delta
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
+		# TODO: implement variable jump power
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
@@ -59,3 +71,10 @@ func _on_midlevel_tween_finished():
 	set_collision_mask_value(1, false)
 	set_collision_layer_value(2, true)
 	set_collision_mask_value(2, true)
+
+
+func _on_final_goal_body_entered(body: Node2D) -> void:
+	# IDK why this is firing on level start so I'll deactivate it during 
+	# level start cooldown:
+	if cooldown_timer.time_left == 0:
+		reached_exit.emit()
