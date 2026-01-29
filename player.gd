@@ -27,28 +27,39 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	var current_animation = null
+	
+	
 	# Add the gravity.
 	if not is_on_floor():
 		# TODO: implement Coyote Time
 		velocity += get_gravity() * delta
+		current_animation = "jump"
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		# TODO: implement variable jump power
 		velocity.y = JUMP_VELOCITY
+		current_animation = "jump"
 
 	# Get the input direction and handle the movement/deceleration.
 	var direction := Input.get_axis("move_left", "move_right")
 	if direction:
 		velocity.x = direction * SPEED
+		if not current_animation:
+			current_animation = "run"
+		$AnimatedSprite2D.flip_h = velocity.x < 0
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		if not current_animation:
+			current_animation = "idle"
 	
 	# Handle "grab" attempts.
+	# TODO: animate grab regardless of target
 	if Input.is_action_just_pressed("grab") and is_touching_midlevel_goal:
-		
 		reached_midlevel.emit()
-
+		
+	$AnimatedSprite2D.play(current_animation)
 	move_and_slide()
 
 
