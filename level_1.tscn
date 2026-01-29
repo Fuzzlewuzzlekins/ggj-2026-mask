@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://bfncqjppicqog"]
+[gd_scene load_steps=8 format=4 uid="uid://bfncqjppicqog"]
 
 [ext_resource type="TileSet" uid="uid://s7boivlsn4dd" path="res://level_tileset.tres" id="1_3hls8"]
 [ext_resource type="Script" uid="uid://bc2yh5x3gie7b" path="res://level.gd" id="1_hn12h"]
 [ext_resource type="PackedScene" uid="uid://jqqu0tnxawit" path="res://player.tscn" id="2_hbghi"]
 [ext_resource type="PackedScene" uid="uid://bh1qwsnp1jxsx" path="res://main.tscn" id="2_ihfcg"]
+[ext_resource type="PackedScene" uid="uid://dgdxk1rqqvko3" path="res://pause.tscn" id="5_rka8t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ihfcg"]
 
@@ -60,9 +61,13 @@ metadata/_edit_group_ = true
 position = Vector2(0, 7)
 shape = SubResource("RectangleShape2D_hn12h")
 
+[node name="Pause" parent="." instance=ExtResource("5_rka8t")]
+
 [connection signal="midlevel_tween_finished" from="." to="Player" method="_on_midlevel_tween_finished"]
 [connection signal="reached_exit" from="Player" to="." method="_on_player_reached_exit"]
 [connection signal="reached_midlevel" from="Player" to="." method="_on_player_reached_midlevel"]
 [connection signal="body_entered" from="MidLevel Goal" to="Player" method="_on_midlevel_goal_body_entered"]
 [connection signal="body_exited" from="MidLevel Goal" to="Player" method="_on_midlevel_goal_body_exited"]
 [connection signal="body_entered" from="Final Goal" to="Player" method="_on_final_goal_body_entered"]
+[connection signal="level_quit" from="Pause" to="." method="_on_pause_level_quit"]
+[connection signal="level_reset" from="Pause" to="." method="_on_pause_level_reset"]
