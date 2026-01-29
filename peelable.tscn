@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=4 uid="uid://bbo65mt2onw72"]
+
+[ext_resource type="Script" uid="uid://cgb5u6bnnatcm" path="res://peelable.gd" id="1_d4n6x"]
+[ext_resource type="TileSet" uid="uid://s7boivlsn4dd" path="res://level_tileset.tres" id="2_i8kcf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wl0gr"]
+
+[node name="Peelable" type="Node2D"]
+script = ExtResource("1_d4n6x")
+metadata/_edit_group_ = true
+
+[node name="HiddenTiles" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD+//3/AAAHAAAAAAD+//7/AAAHAAEAAAD+////AAAHAAIAAAD+/wAAAAAHAAMAAAD+/wEAAAAHAAQAAAD+/wIAAAAHAAUAAAD///3/AAAIAAAAAAD///7/AAAIAAEAAAD/////AAAIAAIAAAD//wAAAAAIAAMAAAD//wEAAAAIAAQAAAD//wIAAAAIAAUAAAAAAP3/AAAJAAAAAAAAAP7/AAAJAAEAAAAAAP//AAAJAAIAAAAAAAAAAAAJAAMAAAAAAAEAAAAJAAQAAAAAAAIAAAAJAAUAAAABAP3/AAAKAAAAAAABAP7/AAAKAAEAAAABAP//AAAKAAIAAAABAAAAAAAKAAMAAAABAAEAAAAKAAQAAAABAAIAAAAKAAUAAAA=")
+tile_set = ExtResource("2_i8kcf")
+
+[node name="MaskTiles" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAACAAIAAAAFAAIAAAACAAEAAAAFAAEAAAACAAAAAAAFAAAAAAACAP//AAAFAAIAAAACAP7/AAAFAAEAAAACAP3/AAAGAAQAAAABAAIAAAAEAAIAAAABAAEAAAAEAAEAAAABAAAAAAAEAAAAAAABAP//AAAEAAIAAAABAP7/AAAEAAEAAAABAP3/AAAEAAAAAAAAAAIAAAAEAAIAAAAAAAEAAAAEAAEAAAAAAAAAAAAEAAAAAAAAAP//AAAEAAIAAAAAAP7/AAAEAAEAAAAAAP3/AAAEAAAAAAD//wIAAAAEAAIAAAD//wEAAAAEAAEAAAD//wAAAAAEAAAAAAD/////AAAEAAIAAAD///7/AAAEAAEAAAD///3/AAAEAAAAAAD+/wIAAAAEAAIAAAD+/wEAAAAEAAEAAAD+/wAAAAAEAAAAAAD+////AAAEAAIAAAD+//7/AAAEAAEAAAD+//3/AAAEAAAAAAD9/wIAAAADAAIAAAD9/wEAAAADAAEAAAD9////AAADAAIAAAD9//7/AAADAAEAAAD9//3/AAADAAAAAAD9/wAAAAADAAAAAAA=")
+tile_set = ExtResource("2_i8kcf")
+
+[node name="TempTiles" type="TileMapLayer" parent="."]
+tile_set = ExtResource("2_i8kcf")
+
+[node name="PeelTarget" type="Area2D" parent="."]
+position = Vector2(40, -40)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PeelTarget"]
+shape = SubResource("RectangleShape2D_wl0gr")
+
+[connection signal="body_entered" from="PeelTarget" to="." method="_on_peel_target_body_entered"]
+[connection signal="body_exited" from="PeelTarget" to="." method="_on_peel_target_body_exited"]

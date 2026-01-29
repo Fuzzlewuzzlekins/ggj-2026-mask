@@ -5,14 +5,16 @@ signal midlevel_tween_finished
 @export var MIDLEVEL_TWEEN_DURATION = 2.0
 @export var EXIT_TWEEN_DURATION = 1.0
 @export var next_level: PackedScene
+@export var IS_SPLIT_LEVEL: bool
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	get_tree().paused = false
-	# Reset visibility of TileMapLayers (not sure if needed)
+	# Reset visibility of TileMapLayers (not sure if needed). 
 	$TileMaps/Part1.show()
-	$TileMaps/Part1Goal.show()
+	if IS_SPLIT_LEVEL:
+		$TileMaps/Part1Goal.show()
 	$TileMaps/Masking.show()
 
 
@@ -29,11 +31,14 @@ func _on_player_reached_midlevel() -> void:
 
 
 func _on_player_reached_exit() -> void:
+	# Point player towards the exit
+	$Player/AnimatedSprite2D.flip_h = $Player.position.x > $"Final Goal".position.x
 	# Tween the player into the exit
 	var tween = create_tween()
 	tween.tween_property($Player, "position", $"Final Goal".position, EXIT_TWEEN_DURATION)
-	tween.tween_property($Player/Sprite2D, "modulate:a", 0, EXIT_TWEEN_DURATION)
+	tween.tween_property($Player/AnimatedSprite2D, "modulate:a", 0, EXIT_TWEEN_DURATION)
 	await get_tree().create_timer(EXIT_TWEEN_DURATION * 2).timeout
+	# Load the next level
 	get_tree().change_scene_to_packed(next_level)
 
 

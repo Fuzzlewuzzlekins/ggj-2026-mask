@@ -2,9 +2,16 @@ extends CharacterBody2D
 
 signal reached_midlevel
 signal reached_exit
+signal peel_local
+
+# Flag whether the character should detect 1 level layer at a time (they're in a 
+# "split level") or 2 layers (they're in a "simple level"). I'd prefer to read this 
+# from the parent node instead of having to check a box, but that's unsafe :/
+@export var IN_SPLIT_LEVEL: bool
 
 var is_touching_midlevel_goal = false
-var cooldown_timer: SceneTreeTimer
+var is_touching_final_goal = false
+var peel_corner_touching = null
 # TODO
 #var last_floor_time = -1.0
 #var last_jump_time = -1.0
@@ -18,12 +25,16 @@ const LEVEL_READY_COOLDOWN = 1.0
 
 
 func _ready() -> void:
-	# Start character as only able to interact with Part 1.
 	set_collision_layer_value(1, true)
 	set_collision_mask_value(1, true)
 	set_collision_layer_value(2, false)
-	set_collision_mask_value(2, false)
-	cooldown_timer = get_tree().create_timer(LEVEL_READY_COOLDOWN)
+	# If the parent scene is a "split level" with two parts,
+	# start character as only able to interact with Part 1.
+	if IN_SPLIT_LEVEL:
+		set_collision_mask_value(2, false)
+	# Otherwise, the level is simple. Let player detect all layers.
+	else:
+		set_collision_mask_value(2, true)
 
 
 func _physics_process(delta: float) -> void:
@@ -56,9 +67,16 @@ func _physics_process(delta: float) -> void:
 	
 	# Handle "grab" attempts.
 	# TODO: animate grab regardless of target
-	if Input.is_action_just_pressed("grab") and is_touching_midlevel_goal:
-		reached_midlevel.emit()
+	if Input.is_action_just_pressed("grab"):
+		if is_touching_midlevel_goal:
+			reached_midlevel.emit()
+		elif peel_corner_touching:
+			peel_local.emit(peel_corner_touching)
 		
+	# Exit the level if grounded and touching (exposed) exit.
+	if is_touching_final_goal and is_on_floor():
+		reached_exit.emit()
+	
 	$AnimatedSprite2D.play(current_animation)
 	move_and_slide()
 
@@ -85,7 +103,21 @@ func _on_midlevel_tween_finished():
 
 
 func _on_final_goal_body_entered(body: Node2D) -> void:
-	# IDK why this is firing on level start so I'll deactivate it during 
-	# level start cooldown:
-	if cooldown_timer.time_left == 0:
-		reached_exit.emit()
+	if self == body:
+		print("Touching exit")
+		is_touching_final_goal = true
+
+
+func _on_final_goal_body_exited(body: Node2D) -> void:
+	if self == body:
+		is_touching_final_goal = false
+
+
+func _on_peelable_peel_corner_entered(body: Node2D, peel_instance: Node2D) -> void:
+	if self == body:
+		peel_corner_touching = peel_instance
+
+
+func _on_peelable_peel_corner_exited(body: Node2D, peel_instance: Node2D) -> void:
+	if self == body:
+		peel_corner_touching = null

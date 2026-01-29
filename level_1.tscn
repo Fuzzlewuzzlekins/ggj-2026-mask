@@ -14,6 +14,7 @@ size = Vector2(32, 56)
 [node name="Level 1" type="Node"]
 script = ExtResource("1_hn12h")
 next_level = ExtResource("2_ihfcg")
+IS_SPLIT_LEVEL = true
 
 [node name="TileMaps" type="Node" parent="."]
 
@@ -40,6 +41,7 @@ tile_set = ExtResource("1_3hls8")
 
 [node name="Player" parent="." instance=ExtResource("2_hbghi")]
 position = Vector2(126, 685)
+IN_SPLIT_LEVEL = true
 
 [node name="MidLevel Goal" type="Area2D" parent="."]
 position = Vector2(904, 152)
@@ -69,5 +71,6 @@ shape = SubResource("RectangleShape2D_hn12h")
 [connection signal="body_entered" from="MidLevel Goal" to="Player" method="_on_midlevel_goal_body_entered"]
 [connection signal="body_exited" from="MidLevel Goal" to="Player" method="_on_midlevel_goal_body_exited"]
 [connection signal="body_entered" from="Final Goal" to="Player" method="_on_final_goal_body_entered"]
+[connection signal="body_exited" from="Final Goal" to="Player" method="_on_final_goal_body_exited"]
 [connection signal="level_quit" from="Pause" to="." method="_on_pause_level_quit"]
 [connection signal="level_reset" from="Pause" to="." method="_on_pause_level_reset"]
