@@ -21,3 +21,7 @@ func _physics_process(delta: float) -> void:
 
 	$AnimatedSprite2D.play("walk")
 	move_and_slide()
+
+func die():
+	$CollisionShape2D.set_deferred("disabled", true)
+	queue_free()
