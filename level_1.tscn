@@ -73,6 +73,7 @@ uv = PackedVector2Array(-184, 24, 112, 32, -16, 120, -176, 96)
 [node name="LevelPeel Sprite" type="Sprite2D" parent="LevelPeel"]
 position = Vector2(587.00006, -467.99997)
 rotation = 0.17453292
+scale = Vector2(1, -1)
 texture = ExtResource("5_5hph3")
 
 [node name="Pause" parent="." instance=ExtResource("5_rka8t")]
