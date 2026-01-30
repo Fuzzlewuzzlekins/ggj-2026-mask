@@ -139,10 +139,20 @@ func _on_peelable_peel_corner_exited(body: Node2D, peel_instance: Node2D) -> voi
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	# Handles dudes killin' us
 	if body.is_in_group("enemies"):
-		take_damage()
+		# If we're falling and above the enemy, assume we can squish
+		if velocity.y > 0 and global_position.y < body.global_position.y:
+			stomp_enemy(body)
+		else:
+			take_damage()
 	
 func take_damage():
 	hide()
+
+
+func stomp_enemy(body):
+	# Remove the enemy AND bounce us up a bit
+	body.die()
+	velocity.y = -50.0
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:
