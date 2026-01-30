@@ -25,9 +25,13 @@ const LEVEL_READY_COOLDOWN = 1.0
 
 
 func _ready() -> void:
-	set_collision_layer_value(1, true)
-	set_collision_mask_value(1, true)
+	# Make the player reside in layer 3
+	set_collision_layer_value(1, false)
 	set_collision_layer_value(2, false)
+	set_collision_layer_value(3, true)
+
+	# Set the masks dynamically depending on level type
+	set_collision_mask_value(1, true)
 	# If the parent scene is a "split level" with two parts,
 	# start character as only able to interact with Part 1.
 	if IN_SPLIT_LEVEL:
@@ -35,6 +39,10 @@ func _ready() -> void:
 	# Otherwise, the level is simple. Let player detect all layers.
 	else:
 		set_collision_mask_value(2, true)
+	
+	# This makes dudes kill us which is bad for the player
+	# but very good for us
+	$Area2D.set_collision_mask_value(4, true)
 
 
 func _physics_process(delta: float) -> void:
@@ -120,3 +128,12 @@ func _on_peelable_peel_corner_entered(body: Node2D, peel_instance: Node2D) -> vo
 func _on_peelable_peel_corner_exited(body: Node2D, peel_instance: Node2D) -> void:
 	if self == body:
 		peel_corner_touching = null
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	# Handles dudes killin' us
+	if body.is_in_group("enemies"):
+		take_damage()
+	
+func take_damage():
+	hide()

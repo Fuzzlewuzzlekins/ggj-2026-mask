@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://bl8364aibew8m"]
+[gd_scene load_steps=11 format=4 uid="uid://bl8364aibew8m"]
 
 [ext_resource type="Script" uid="uid://bc2yh5x3gie7b" path="res://level.gd" id="1_t218m"]
 [ext_resource type="PackedScene" uid="uid://bfncqjppicqog" path="res://level_1.tscn" id="2_smnfn"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dah861jorek63" path="res://assets/environment/level_0_decor2.png" id="5_eomlm"]
 [ext_resource type="PackedScene" uid="uid://dgdxk1rqqvko3" path="res://pause.tscn" id="5_nu7sl"]
 [ext_resource type="PackedScene" uid="uid://bbo65mt2onw72" path="res://peelable.tscn" id="5_omks2"]
+[ext_resource type="PackedScene" uid="uid://bcwlg331iv2wr" path="res://enemy_eraser.tscn" id="9_eomlm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_smnfn"]
 size = Vector2(32, 56)
@@ -62,6 +63,9 @@ position = Vector2(0, 7)
 shape = SubResource("RectangleShape2D_smnfn")
 
 [node name="Pause" parent="." instance=ExtResource("5_nu7sl")]
+
+[node name="EnemyEraser" parent="." instance=ExtResource("9_eomlm")]
+position = Vector2(367, 588)
 
 [connection signal="peel_corner_entered" from="Peelable" to="Player" method="_on_peelable_peel_corner_entered"]
 [connection signal="peel_corner_exited" from="Peelable" to="Player" method="_on_peelable_peel_corner_exited"]
