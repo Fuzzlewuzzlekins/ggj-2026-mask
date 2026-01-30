@@ -19,6 +19,8 @@ func _ready() -> void:
 
 
 func _on_player_reached_midlevel() -> void:
+	$LevelPeelSound.play()
+	
 	# Reparent nodes into LevelPeel (a Polygon2D clipping mask) for peel animation
 	$TileMaps/Masking.reparent($LevelPeel)
 	$TileMaps/Part1.reparent($LevelPeel)

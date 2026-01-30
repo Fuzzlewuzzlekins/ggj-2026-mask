@@ -51,6 +51,7 @@ func _physics_process(delta: float) -> void:
 		# TODO: implement variable jump power
 		velocity.y = JUMP_VELOCITY
 		current_animation = "jump"
+		$JumpSoundPlayer.play()
 
 	# Get the input direction and handle the movement/deceleration.
 	var direction := Input.get_axis("move_left", "move_right")

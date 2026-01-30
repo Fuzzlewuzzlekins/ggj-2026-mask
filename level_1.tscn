@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://bfncqjppicqog"]
+[gd_scene load_steps=10 format=4 uid="uid://bfncqjppicqog"]
 
 [ext_resource type="TileSet" uid="uid://s7boivlsn4dd" path="res://level_tileset.tres" id="1_3hls8"]
 [ext_resource type="Script" uid="uid://bc2yh5x3gie7b" path="res://level.gd" id="1_hn12h"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bh1qwsnp1jxsx" path="res://main.tscn" id="2_ihfcg"]
 [ext_resource type="Texture2D" uid="uid://3h4dugella3q" path="res://assets/environment/level_1_peel.png" id="5_5hph3"]
 [ext_resource type="PackedScene" uid="uid://dgdxk1rqqvko3" path="res://pause.tscn" id="5_rka8t"]
+[ext_resource type="AudioStream" uid="uid://box1fe5cnfv8k" path="res://assets/audio/tape_peel_3s.ogg" id="7_j7kpp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ihfcg"]
 
@@ -77,6 +78,9 @@ scale = Vector2(1, -1)
 texture = ExtResource("5_5hph3")
 
 [node name="Pause" parent="." instance=ExtResource("5_rka8t")]
+
+[node name="LevelPeelSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_j7kpp")
 
 [connection signal="midlevel_tween_finished" from="." to="Player" method="_on_midlevel_tween_finished"]
 [connection signal="reached_exit" from="Player" to="." method="_on_player_reached_exit"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://jqqu0tnxawit"]
+[gd_scene load_steps=11 format=3 uid="uid://jqqu0tnxawit"]
 
 [ext_resource type="Script" uid="uid://ddysle0ros6tv" path="res://player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://c25pylxaq1jwx" path="res://assets/crayon_idle.png" id="2_1jxqw"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bsnxbjjgfa7li" path="res://assets/crayon_run2.png" id="5_n7ghd"]
 [ext_resource type="Texture2D" uid="uid://dyxnacwyoqgtr" path="res://assets/crayon_run3.png" id="6_nvl01"]
 [ext_resource type="Texture2D" uid="uid://cq3bg4cya3c5m" path="res://assets/crayon_run4.png" id="7_ivps1"]
+[ext_resource type="AudioStream" uid="uid://cyfxwiga4edte" path="res://assets/audio/pop1.ogg" id="8_dw050"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_urp6f"]
 animations = [{
@@ -60,3 +61,6 @@ frame_progress = 0.21568869
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_hqtel")
+
+[node name="JumpSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_dw050")
