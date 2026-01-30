@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://jqqu0tnxawit"]
+[gd_scene load_steps=12 format=3 uid="uid://jqqu0tnxawit"]
 
 [ext_resource type="Script" uid="uid://ddysle0ros6tv" path="res://player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://c25pylxaq1jwx" path="res://assets/crayon_idle.png" id="2_1jxqw"]
@@ -48,6 +48,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hqtel"]
 size = Vector2(27, 70)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dw050"]
+size = Vector2(25, 68)
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_onrkg")
 metadata/_edit_group_ = true
@@ -64,3 +67,13 @@ shape = SubResource("RectangleShape2D_hqtel")
 
 [node name="JumpSoundPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_dw050")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_dw050")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
