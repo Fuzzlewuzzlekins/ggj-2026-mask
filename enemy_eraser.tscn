@@ -1,16 +1,46 @@
-[gd_scene load_steps=5 format=3 uid="uid://bcwlg331iv2wr"]
+[gd_scene load_steps=10 format=3 uid="uid://bcwlg331iv2wr"]
 
-[ext_resource type="Texture2D" uid="uid://cvri6ip3ql1lv" path="res://assets/eraser_temp.png" id="1_kdwcq"]
 [ext_resource type="Script" uid="uid://yqk0ggyd6v0a" path="res://enemy_eraser.gd" id="1_tu2bk"]
+[ext_resource type="Texture2D" uid="uid://dul5cu1yxnnkv" path="res://assets/eraser_idle.png" id="2_3tps4"]
+[ext_resource type="Texture2D" uid="uid://2wahrx0mbx83" path="res://assets/eraser_ouch.png" id="3_77hvg"]
+[ext_resource type="Texture2D" uid="uid://c74jfv7pky15g" path="res://assets/eraser_walk1.png" id="4_mh0b5"]
+[ext_resource type="Texture2D" uid="uid://c3midvjticeuo" path="res://assets/eraser_walk2.png" id="5_m787s"]
+[ext_resource type="Texture2D" uid="uid://vd0uldssdofl" path="res://assets/eraser_walk3.png" id="6_c07pp"]
+[ext_resource type="Texture2D" uid="uid://ms4jx74e5ba3" path="res://assets/eraser_walk4.png" id="7_gn1h3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rp2hv"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_kdwcq")
+"texture": ExtResource("2_3tps4")
 }],
 "loop": true,
-"name": &"default",
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_77hvg")
+}],
+"loop": true,
+"name": &"ouch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_mh0b5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_m787s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_c07pp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_gn1h3")
+}],
+"loop": true,
+"name": &"walk",
 "speed": 5.0
 }]
 
@@ -26,6 +56,7 @@ metadata/_edit_group_ = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_rp2hv")
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 1)
