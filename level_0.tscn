@@ -55,17 +55,17 @@ position = Vector2(512, 588)
 [node name="Final Goal" type="Area2D" parent="."]
 position = Vector2(896, 237)
 collision_layer = 3
-collision_mask = 3
+collision_mask = 7
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Final Goal"]
 position = Vector2(0, 7)
 shape = SubResource("RectangleShape2D_smnfn")
 
-[node name="Pause" parent="." instance=ExtResource("5_nu7sl")]
-
 [node name="EnemyEraser" parent="." instance=ExtResource("9_eomlm")]
 position = Vector2(367, 588)
+
+[node name="Pause" parent="." instance=ExtResource("5_nu7sl")]
 
 [connection signal="peel_corner_entered" from="Peelable" to="Player" method="_on_peelable_peel_corner_entered"]
 [connection signal="peel_corner_exited" from="Peelable" to="Player" method="_on_peelable_peel_corner_exited"]
@@ -73,5 +73,7 @@ position = Vector2(367, 588)
 [connection signal="reached_exit" from="Player" to="." method="_on_player_reached_exit"]
 [connection signal="body_entered" from="Final Goal" to="Player" method="_on_final_goal_body_entered"]
 [connection signal="body_exited" from="Final Goal" to="Player" method="_on_final_goal_body_exited"]
+[connection signal="level_quit" from="Pause" to="." method="_on_pause_level_quit"]
+[connection signal="level_reset" from="Pause" to="." method="_on_pause_level_reset"]
 
 [editable path="Peelable"]

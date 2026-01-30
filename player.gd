@@ -9,6 +9,7 @@ signal peel_local
 # from the parent node instead of having to check a box, but that's unsafe :/
 @export var IN_SPLIT_LEVEL: bool
 
+var is_grabbing = false
 var is_touching_midlevel_goal = false
 var is_touching_final_goal = false
 var peel_corner_touching = null
@@ -76,6 +77,8 @@ func _physics_process(delta: float) -> void:
 	# Handle "grab" attempts.
 	# TODO: animate grab regardless of target
 	if Input.is_action_just_pressed("grab"):
+		is_grabbing = true
+		$GrabSoundPlayer.play()
 		if is_touching_midlevel_goal:
 			reached_midlevel.emit()
 		elif peel_corner_touching:
@@ -85,7 +88,10 @@ func _physics_process(delta: float) -> void:
 	if is_touching_final_goal and is_on_floor():
 		reached_exit.emit()
 	
-	$AnimatedSprite2D.play(current_animation)
+	if is_grabbing:
+		$AnimatedSprite2D.play("grab")
+	else:
+		$AnimatedSprite2D.play(current_animation)
 	move_and_slide()
 
 
@@ -126,7 +132,7 @@ func _on_peelable_peel_corner_entered(body: Node2D, peel_instance: Node2D) -> vo
 
 
 func _on_peelable_peel_corner_exited(body: Node2D, peel_instance: Node2D) -> void:
-	if self == body:
+	if self == body and peel_corner_touching == peel_instance:
 		peel_corner_touching = null
 
 
@@ -137,3 +143,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	
 func take_damage():
 	hide()
+
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	# At the moment "grab" is the only non-looping animation. Add a condition here if that changes.
+	is_grabbing = false

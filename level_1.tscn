@@ -47,6 +47,7 @@ IN_SPLIT_LEVEL = true
 
 [node name="MidLevel Goal" type="Area2D" parent="."]
 position = Vector2(904, 152)
+collision_mask = 5
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MidLevel Goal"]
@@ -58,7 +59,7 @@ position = Vector2(816, 685)
 [node name="Final Goal" type="Area2D" parent="."]
 position = Vector2(96, 109)
 collision_layer = 2
-collision_mask = 2
+collision_mask = 6
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Final Goal"]
