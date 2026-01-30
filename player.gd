@@ -40,7 +40,6 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	var current_animation = null
 	
-	
 	# Add the gravity.
 	if not is_on_floor():
 		# TODO: implement Coyote Time
@@ -104,7 +103,6 @@ func _on_midlevel_tween_finished():
 
 func _on_final_goal_body_entered(body: Node2D) -> void:
 	if self == body:
-		print("Touching exit")
 		is_touching_final_goal = true
 
 
