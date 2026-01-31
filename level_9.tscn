@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=4 uid="uid://duyhho5uayisv"]
+[gd_scene load_steps=6 format=4 uid="uid://duyhho5uayisv"]
 
 [ext_resource type="PackedScene" uid="uid://bs6w6ooqbq2vm" path="res://level_template.tscn" id="1_fxc0e"]
+[ext_resource type="PackedScene" uid="uid://bh1qwsnp1jxsx" path="res://main.tscn" id="2_7i33c"]
 [ext_resource type="Texture2D" uid="uid://d3g2nbxs125yd" path="res://assets/environment/castle_overlay.png" id="2_aab6h"]
 [ext_resource type="PackedScene" uid="uid://bbo65mt2onw72" path="res://peelable.tscn" id="3_4y126"]
 [ext_resource type="PackedScene" uid="uid://bcwlg331iv2wr" path="res://enemy_eraser.tscn" id="4_7i33c"]
 
 [node name="Level 9" instance=ExtResource("1_fxc0e")]
+next_level = ExtResource("2_7i33c")
 
 [node name="Overlay" parent="TileMaps/Background" index="0"]
 texture = ExtResource("2_aab6h")

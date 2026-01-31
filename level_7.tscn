@@ -1,12 +1,14 @@
-[gd_scene load_steps=6 format=4 uid="uid://le7rsbrxosx0"]
+[gd_scene load_steps=7 format=4 uid="uid://le7rsbrxosx0"]
 
 [ext_resource type="PackedScene" uid="uid://bs6w6ooqbq2vm" path="res://level_template.tscn" id="1_0muw3"]
 [ext_resource type="Texture2D" uid="uid://dkgidognjjxs8" path="res://assets/environment/sky_overlay.png" id="2_2pghd"]
+[ext_resource type="PackedScene" uid="uid://ck564yq0qxyxr" path="res://level_8.tscn" id="2_12rt6"]
 [ext_resource type="Texture2D" uid="uid://bkmkaigp6knxu" path="res://assets/environment/level_7_decor.png" id="3_4ryn0"]
 [ext_resource type="PackedScene" uid="uid://bcwlg331iv2wr" path="res://enemy_eraser.tscn" id="3_nak3m"]
 [ext_resource type="PackedScene" uid="uid://bbo65mt2onw72" path="res://peelable.tscn" id="4_4ryn0"]
 
 [node name="Level 7" instance=ExtResource("1_0muw3")]
+next_level = ExtResource("2_12rt6")
 IS_SPLIT_LEVEL = false
 
 [node name="Overlay" parent="TileMaps/Background" index="0"]
