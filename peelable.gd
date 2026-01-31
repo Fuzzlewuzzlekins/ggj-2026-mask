@@ -20,7 +20,7 @@ func _ready() -> void:
 
 
 
-func _on_peel_target_body_entered(body: Node2D) -> void:
+func _on_peel_target_body_entered(body: Node2D) -> void:	
 	var peel_instance = self
 	peel_corner_entered.emit(body, peel_instance)
 

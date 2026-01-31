@@ -3,7 +3,7 @@
 [ext_resource type="TileSet" uid="uid://s7boivlsn4dd" path="res://level_tileset.tres" id="1_3hls8"]
 [ext_resource type="Script" uid="uid://bc2yh5x3gie7b" path="res://level.gd" id="1_hn12h"]
 [ext_resource type="PackedScene" uid="uid://jqqu0tnxawit" path="res://player.tscn" id="2_hbghi"]
-[ext_resource type="PackedScene" uid="uid://bh1qwsnp1jxsx" path="res://main.tscn" id="2_ihfcg"]
+[ext_resource type="PackedScene" uid="uid://3rjrhi2fk5kw" path="res://level_2.tscn" id="2_j7kpp"]
 [ext_resource type="Texture2D" uid="uid://3h4dugella3q" path="res://assets/environment/level_1_peel.png" id="5_5hph3"]
 [ext_resource type="PackedScene" uid="uid://dgdxk1rqqvko3" path="res://pause.tscn" id="5_rka8t"]
 [ext_resource type="AudioStream" uid="uid://box1fe5cnfv8k" path="res://assets/audio/tape_peel_3s.ogg" id="7_j7kpp"]
@@ -15,7 +15,7 @@ size = Vector2(32, 56)
 
 [node name="Level 1" type="Node"]
 script = ExtResource("1_hn12h")
-next_level = ExtResource("2_ihfcg")
+next_level = ExtResource("2_j7kpp")
 IS_SPLIT_LEVEL = true
 
 [node name="TileMaps" type="Node" parent="."]
