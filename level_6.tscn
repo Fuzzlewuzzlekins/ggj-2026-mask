@@ -112,6 +112,8 @@ tile_map_data = PackedByteArray("AAACAAIAAAAFAAIAAAACAAEAAAAFAAEAAAACAAAAAAAFAAA
 [node name="TempTiles" parent="Peelable/PeelMask" index="1"]
 tile_map_data = PackedByteArray("AAD9////AAABAAQAAQD9/wAAAAABAAQAAQD9/wEAAAABAAQAAQD+////AAABAAQAAQD+/wAAAAABAAQAAQD+/wEAAAABAAQAAQD/////AAABAAQAAQD//wAAAAABAAQAAQD//wEAAAABAAQAAQAAAP//AAABAAQAAQAAAAAAAAABAAQAAQAAAAEAAAABAAQAAQABAP//AAABAAQAAQABAAAAAAABAAQAAQABAAEAAAABAAQAAQACAP//AAABAAQAAQACAAAAAAABAAQAAQACAAEAAAABAAQAAQA=")
 
+[node name="Pause2" parent="." instance=ExtResource("7_dxhc4")]
+
 [connection signal="midlevel_tween_finished" from="." to="Player" method="_on_midlevel_tween_finished"]
 [connection signal="peel_local" from="Player" to="Peelable" method="_on_player_peel_local"]
 [connection signal="reached_exit" from="Player" to="." method="_on_player_reached_exit"]
