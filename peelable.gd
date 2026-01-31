@@ -24,11 +24,9 @@ func _on_peel_target_body_entered(body: Node2D) -> void:
 	var peel_instance = self
 	peel_corner_entered.emit(body, peel_instance)
 
-
 func _on_peel_target_body_exited(body: Node2D) -> void:
 	var peel_instance = self
 	peel_corner_exited.emit(body, peel_instance)
-
 
 func _on_player_peel_local(peel_instance: Node2D) -> void:
 	if peel_instance == self:
