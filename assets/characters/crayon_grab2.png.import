@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyxnacwyoqgtr"
-path="res://.godot/imported/crayon_run3.png-3a29ad0f7388b220f3823bdbe5620ab1.ctex"
+uid="uid://cqnlf6rimgwka"
+path="res://.godot/imported/crayon_grab2.png-298a4a0538f8ba40d498cf1d74df12f6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/crayon_run3.png"
-dest_files=["res://.godot/imported/crayon_run3.png-3a29ad0f7388b220f3823bdbe5620ab1.ctex"]
+source_file="res://assets/characters/crayon_grab2.png"
+dest_files=["res://.godot/imported/crayon_grab2.png-298a4a0538f8ba40d498cf1d74df12f6.ctex"]
 
 [params]
 

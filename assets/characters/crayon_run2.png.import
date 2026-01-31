@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3midvjticeuo"
-path="res://.godot/imported/eraser_walk2.png-9047e629411402fe1640c93d8bc4b68e.ctex"
+uid="uid://bsnxbjjgfa7li"
+path="res://.godot/imported/crayon_run2.png-5544082cb6765b39d10a0260d85d9b93.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/eraser_walk2.png"
-dest_files=["res://.godot/imported/eraser_walk2.png-9047e629411402fe1640c93d8bc4b68e.ctex"]
+source_file="res://assets/characters/crayon_run2.png"
+dest_files=["res://.godot/imported/crayon_run2.png-5544082cb6765b39d10a0260d85d9b93.ctex"]
 
 [params]
 

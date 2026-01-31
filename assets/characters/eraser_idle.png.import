@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcvruksvg6m7v"
-path="res://.godot/imported/pencil_temp.png-22ad11f462eb5501aa560d538ece6e5d.ctex"
+uid="uid://dul5cu1yxnnkv"
+path="res://.godot/imported/eraser_idle.png-d0912543e8ff71b8708e903506d2b089.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/pencil_temp.png"
-dest_files=["res://.godot/imported/pencil_temp.png-22ad11f462eb5501aa560d538ece6e5d.ctex"]
+source_file="res://assets/characters/eraser_idle.png"
+dest_files=["res://.godot/imported/eraser_idle.png-d0912543e8ff71b8708e903506d2b089.ctex"]
 
 [params]
 

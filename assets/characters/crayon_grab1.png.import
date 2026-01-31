@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dost3m7yf1fe2"
-path="res://.godot/imported/kingtape_temp.png-538df5634f4301e1581a3f7ebac74793.ctex"
+uid="uid://mqcbmwx6a2a3"
+path="res://.godot/imported/crayon_grab1.png-62d47c1d98ac431a1e7d78fb697a3cba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/kingtape_temp.png"
-dest_files=["res://.godot/imported/kingtape_temp.png-538df5634f4301e1581a3f7ebac74793.ctex"]
+source_file="res://assets/characters/crayon_grab1.png"
+dest_files=["res://.godot/imported/crayon_grab1.png-62d47c1d98ac431a1e7d78fb697a3cba.ctex"]
 
 [params]
 

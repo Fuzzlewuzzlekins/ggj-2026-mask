@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c72l0bmvwogpc"
-path="res://.godot/imported/eraser_ouch_armor.png-6b45df3a9ba42d177098681beff1baff.ctex"
+uid="uid://2wahrx0mbx83"
+path="res://.godot/imported/eraser_ouch.png-58dadcfdd0a4fad81c59e5de287b5f4f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/eraser_ouch_armor.png"
-dest_files=["res://.godot/imported/eraser_ouch_armor.png-6b45df3a9ba42d177098681beff1baff.ctex"]
+source_file="res://assets/characters/eraser_ouch.png"
+dest_files=["res://.godot/imported/eraser_ouch.png-58dadcfdd0a4fad81c59e5de287b5f4f.ctex"]
 
 [params]
 

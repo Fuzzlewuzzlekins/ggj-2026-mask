@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqnlf6rimgwka"
-path="res://.godot/imported/crayon_grab2.png-9bd7642b780b5edfbcbc5ae3a3cf8d2f.ctex"
+uid="uid://bf4y6v5yo5spg"
+path="res://.godot/imported/whiteout_temp.png-5a438fc7db3f6c66593bcdadca4b6eb6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/crayon_grab2.png"
-dest_files=["res://.godot/imported/crayon_grab2.png-9bd7642b780b5edfbcbc5ae3a3cf8d2f.ctex"]
+source_file="res://assets/characters/whiteout_temp.png"
+dest_files=["res://.godot/imported/whiteout_temp.png-5a438fc7db3f6c66593bcdadca4b6eb6.ctex"]
 
 [params]
 

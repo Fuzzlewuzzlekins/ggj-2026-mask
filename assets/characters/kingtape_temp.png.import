@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c25pylxaq1jwx"
-path="res://.godot/imported/crayon_idle.png-42d0cc688a2237ce171e1b5b65251ed7.ctex"
+uid="uid://dost3m7yf1fe2"
+path="res://.godot/imported/kingtape_temp.png-d03928075a7a2d2c3534f52a36be72bc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/crayon_idle.png"
-dest_files=["res://.godot/imported/crayon_idle.png-42d0cc688a2237ce171e1b5b65251ed7.ctex"]
+source_file="res://assets/characters/kingtape_temp.png"
+dest_files=["res://.godot/imported/kingtape_temp.png-d03928075a7a2d2c3534f52a36be72bc.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mqcbmwx6a2a3"
-path="res://.godot/imported/crayon_grab1.png-ea5215ccaa3f6cc2c4330289c9dc8d15.ctex"
+uid="uid://bvdb8oycdff67"
+path="res://.godot/imported/eraser_idle_armor.png-9326a1e478adbbf740a80f2792550686.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/crayon_grab1.png"
-dest_files=["res://.godot/imported/crayon_grab1.png-ea5215ccaa3f6cc2c4330289c9dc8d15.ctex"]
+source_file="res://assets/characters/eraser_idle_armor.png"
+dest_files=["res://.godot/imported/eraser_idle_armor.png-9326a1e478adbbf740a80f2792550686.ctex"]
 
 [params]
 

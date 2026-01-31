@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsnxbjjgfa7li"
-path="res://.godot/imported/crayon_run2.png-915abaa4722e8ca7918b85a833818787.ctex"
+uid="uid://c72l0bmvwogpc"
+path="res://.godot/imported/eraser_ouch_armor.png-909657ba0e9bcf31d65a433622a22290.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/crayon_run2.png"
-dest_files=["res://.godot/imported/crayon_run2.png-915abaa4722e8ca7918b85a833818787.ctex"]
+source_file="res://assets/characters/eraser_ouch_armor.png"
+dest_files=["res://.godot/imported/eraser_ouch_armor.png-909657ba0e9bcf31d65a433622a22290.ctex"]
 
 [params]
 
