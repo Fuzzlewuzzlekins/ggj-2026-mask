@@ -1,14 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://c17qlprd4pr8f"]
+[gd_scene load_steps=11 format=3 uid="uid://c17qlprd4pr8f"]
 
-[ext_resource type="Texture2D" uid="uid://dost3m7yf1fe2" path="res://assets/characters/kingtape_temp.png" id="2_2her3"]
 [ext_resource type="Script" uid="uid://bt3lapstedtqw" path="res://king_tape.gd" id="2_6lgkp"]
+[ext_resource type="Texture2D" uid="uid://dfkave1ata8r0" path="res://assets/characters/kingtape_idle.png" id="2_8t0gi"]
+[ext_resource type="Texture2D" uid="uid://b1v186d1c7dmi" path="res://assets/characters/kingtape_walk1.png" id="3_nlfn6"]
+[ext_resource type="Texture2D" uid="uid://g60f650jjrxb" path="res://assets/characters/kingtape_ouch.png" id="3_u4mc1"]
+[ext_resource type="Texture2D" uid="uid://bukwgpcvjncnd" path="res://assets/characters/kingtape_walk2.png" id="4_8t0gi"]
+[ext_resource type="Texture2D" uid="uid://df7vjjm7gromf" path="res://assets/characters/kingtape_walk3.png" id="5_u4mc1"]
+[ext_resource type="Texture2D" uid="uid://vuh4e6x2fhsp" path="res://assets/characters/kingtape_walk4.png" id="6_ho7vq"]
 [ext_resource type="AudioStream" uid="uid://bvmpgbxq61jrt" path="res://assets/audio/pop2.ogg" id="14_5f7p8"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rp2hv"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_2her3")
+"texture": ExtResource("2_8t0gi")
 }],
 "loop": true,
 "name": &"idle",
@@ -16,15 +21,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_2her3")
-}],
-"loop": true,
-"name": &"idle_armor",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_2her3")
+"texture": ExtResource("3_u4mc1")
 }],
 "loop": true,
 "name": &"ouch",
@@ -32,26 +29,19 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_2her3")
-}],
-"loop": true,
-"name": &"ouch_armor",
-"speed": 5.0
+"texture": ExtResource("3_nlfn6")
 }, {
-"frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_2her3")
+"texture": ExtResource("4_8t0gi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_u4mc1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ho7vq")
 }],
 "loop": true,
 "name": &"walk",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_2her3")
-}],
-"loop": true,
-"name": &"walk_armor",
 "speed": 5.0
 }]
 
