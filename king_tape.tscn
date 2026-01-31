@@ -1,0 +1,71 @@
+[gd_scene load_steps=11 format=3 uid="uid://c17qlprd4pr8f"]
+
+[ext_resource type="Script" uid="uid://bt3lapstedtqw" path="res://king_tape.gd" id="2_6lgkp"]
+[ext_resource type="Texture2D" uid="uid://dfkave1ata8r0" path="res://assets/characters/kingtape_idle.png" id="2_8t0gi"]
+[ext_resource type="Texture2D" uid="uid://b1v186d1c7dmi" path="res://assets/characters/kingtape_walk1.png" id="3_nlfn6"]
+[ext_resource type="Texture2D" uid="uid://g60f650jjrxb" path="res://assets/characters/kingtape_ouch.png" id="3_u4mc1"]
+[ext_resource type="Texture2D" uid="uid://bukwgpcvjncnd" path="res://assets/characters/kingtape_walk2.png" id="4_8t0gi"]
+[ext_resource type="Texture2D" uid="uid://df7vjjm7gromf" path="res://assets/characters/kingtape_walk3.png" id="5_u4mc1"]
+[ext_resource type="Texture2D" uid="uid://vuh4e6x2fhsp" path="res://assets/characters/kingtape_walk4.png" id="6_ho7vq"]
+[ext_resource type="AudioStream" uid="uid://bvmpgbxq61jrt" path="res://assets/audio/pop2.ogg" id="14_5f7p8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rp2hv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8t0gi")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_u4mc1")
+}],
+"loop": true,
+"name": &"ouch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_nlfn6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_8t0gi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_u4mc1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ho7vq")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2her3"]
+radius = 114.0
+height = 272.0
+
+[node name="KingTape" type="CharacterBody2D" groups=["tape_boss"]]
+collision_layer = 8
+collision_mask = 3
+script = ExtResource("2_6lgkp")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.25, 1.25)
+sprite_frames = SubResource("SpriteFrames_rp2hv")
+animation = &"idle"
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["tape_boss"]]
+position = Vector2(5, 7)
+shape = SubResource("CapsuleShape2D_2her3")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="DieSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_5f7p8")

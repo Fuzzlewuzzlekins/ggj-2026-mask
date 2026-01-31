@@ -136,12 +136,21 @@ func _on_peelable_peel_corner_exited(body: Node2D, peel_instance: Node2D) -> voi
 		peel_corner_touching = null
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	# Handles dudes killin' us
+	
+	if body.is_in_group("tape_boss"):
+		# For the case of the boss, we want to be a bit higher
+		if velocity.y > 0 and global_position.y < (body.global_position.y - 80):
+			stomp_enemy(body)
+		else:
+			# Handles dudes killin' us
+			take_damage()
+						
 	if body.is_in_group("enemies"):
 		# If we're falling and above the enemy, assume we can squish
 		if velocity.y > 0 and global_position.y < body.global_position.y:
 			stomp_enemy(body)
 		else:
+			# Handles dudes killin' us
 			take_damage()
 	
 func take_damage():
