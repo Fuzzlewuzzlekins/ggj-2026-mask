@@ -13,6 +13,7 @@ var is_grabbing = false
 var is_touching_midlevel_goal = false
 var is_touching_final_goal = false
 var peel_corner_touching = null
+var is_hit = false
 # TODO
 #var last_floor_time = -1.0
 #var last_jump_time = -1.0
@@ -56,7 +57,7 @@ func _physics_process(delta: float) -> void:
 		current_animation = "jump"
 
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor() and not is_hit:
 		# TODO: implement variable jump power
 		velocity.y = JUMP_VELOCITY
 		current_animation = "jump"
@@ -76,7 +77,7 @@ func _physics_process(delta: float) -> void:
 	
 	# Handle "grab" attempts.
 	# TODO: animate grab regardless of target
-	if Input.is_action_just_pressed("grab"):
+	if Input.is_action_just_pressed("grab") and not is_hit:
 		is_grabbing = true
 		$GrabSoundPlayer.play()
 		if is_touching_midlevel_goal:
@@ -85,7 +86,7 @@ func _physics_process(delta: float) -> void:
 			peel_local.emit(peel_corner_touching)
 		
 	# Exit the level if grounded and touching (exposed) exit.
-	if is_touching_final_goal and is_on_floor():
+	if is_touching_final_goal and is_on_floor() and not is_hit:
 		reached_exit.emit()
 	
 	if is_grabbing:
@@ -144,6 +145,18 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			take_damage()
 	
 func take_damage():
+	#hide()
+	# Switch off mask 4 to stop enemy detection
+	set_collision_mask_value(4, false)
+	# Switch off platform masks so the player "falls out of the level"
+	set_collision_mask_value(1, false)
+	set_collision_mask_value(2, false)
+	is_hit = true
+	$DieSoundPlayer.play()
+	# Fade the enemy out over 1 sec, then delete
+	var tween = create_tween()
+	tween.tween_property(self, "modulate:a", 0, 0.5)
+	await tween.finished
 	hide()
 
 

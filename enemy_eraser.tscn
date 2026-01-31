@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bcwlg331iv2wr"]
+[gd_scene load_steps=17 format=3 uid="uid://bcwlg331iv2wr"]
 
 [ext_resource type="Script" uid="uid://yqk0ggyd6v0a" path="res://enemy_eraser.gd" id="1_tu2bk"]
 [ext_resource type="Texture2D" uid="uid://dul5cu1yxnnkv" path="res://assets/eraser_idle.png" id="2_3tps4"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dg3qmuqoelwj" path="res://assets/eraser_walk_armor2.png" id="11_6xl3i"]
 [ext_resource type="Texture2D" uid="uid://thxcs2kd6p7" path="res://assets/eraser_walk_armor3.png" id="12_5e5vf"]
 [ext_resource type="Texture2D" uid="uid://bopyxtvdjep2" path="res://assets/eraser_walk_armor4.png" id="13_vbxcb"]
+[ext_resource type="AudioStream" uid="uid://bvmpgbxq61jrt" path="res://assets/audio/pop2.ogg" id="14_nyv6h"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rp2hv"]
 animations = [{
@@ -102,3 +103,6 @@ position = Vector2(-1, 1)
 shape = SubResource("RectangleShape2D_kdwcq")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="DieSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_nyv6h")

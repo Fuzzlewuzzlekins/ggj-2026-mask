@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://jqqu0tnxawit"]
+[gd_scene load_steps=16 format=3 uid="uid://jqqu0tnxawit"]
 
 [ext_resource type="Script" uid="uid://ddysle0ros6tv" path="res://player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://c25pylxaq1jwx" path="res://assets/crayon_idle.png" id="2_1jxqw"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cq3bg4cya3c5m" path="res://assets/crayon_run4.png" id="7_ivps1"]
 [ext_resource type="AudioStream" uid="uid://cyfxwiga4edte" path="res://assets/audio/pop1.ogg" id="8_dw050"]
 [ext_resource type="AudioStream" uid="uid://kxv36oou74ku" path="res://assets/audio/whoosh.ogg" id="11_nvl01"]
+[ext_resource type="AudioStream" uid="uid://bvmpgbxq61jrt" path="res://assets/audio/pop2.ogg" id="12_ivps1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_urp6f"]
 animations = [{
@@ -85,6 +86,9 @@ stream = ExtResource("8_dw050")
 stream = ExtResource("11_nvl01")
 volume_db = -12.0
 pitch_scale = 0.7
+
+[node name="DieSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_ivps1")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
