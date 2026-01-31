@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-var speed = 200.0
+var speed = -100.0
 const JUMP_VELOCITY = -400.0
 var direction = 1 # 1 for right, -1 for left
 var is_hit = false
