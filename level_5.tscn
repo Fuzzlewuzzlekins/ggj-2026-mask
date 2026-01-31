@@ -1,8 +1,8 @@
 [gd_scene load_steps=13 format=4 uid="uid://bvr78butw2rf2"]
 
 [ext_resource type="Script" uid="uid://bc2yh5x3gie7b" path="res://level.gd" id="1_t3h5c"]
+[ext_resource type="PackedScene" uid="uid://bh2wjnvko4cs2" path="res://level_6.tscn" id="2_2etst"]
 [ext_resource type="TileSet" uid="uid://s7boivlsn4dd" path="res://level_tileset.tres" id="2_mg3yy"]
-[ext_resource type="PackedScene" uid="uid://bh1qwsnp1jxsx" path="res://main.tscn" id="2_qhsfq"]
 [ext_resource type="PackedScene" uid="uid://bbo65mt2onw72" path="res://peelable.tscn" id="3_cp4ax"]
 [ext_resource type="Texture2D" uid="uid://dkgidognjjxs8" path="res://assets/environment/sky_overlay.png" id="4_2etst"]
 [ext_resource type="PackedScene" uid="uid://jqqu0tnxawit" path="res://player.tscn" id="4_br4so"]
@@ -18,7 +18,7 @@ size = Vector2(32, 56)
 
 [node name="Level 5" type="Node"]
 script = ExtResource("1_t3h5c")
-next_level = ExtResource("2_qhsfq")
+next_level = ExtResource("2_2etst")
 IS_SPLIT_LEVEL = true
 
 [node name="TileMaps" type="Node" parent="."]
