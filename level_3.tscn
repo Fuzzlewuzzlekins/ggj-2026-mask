@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://63pjj15up6n1"]
+[gd_scene load_steps=9 format=4 uid="uid://63pjj15up6n1"]
 
 [ext_resource type="TileSet" uid="uid://s7boivlsn4dd" path="res://level_tileset.tres" id="1_ayd5w"]
 [ext_resource type="Script" uid="uid://bc2yh5x3gie7b" path="res://level.gd" id="1_j8bo8"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cg7s6dlejfqo4" path="res://level_4.tscn" id="2_1jdk1"]
 [ext_resource type="Texture2D" uid="uid://dkgidognjjxs8" path="res://assets/environment/sky_overlay.png" id="2_j8bo8"]
 [ext_resource type="PackedScene" uid="uid://bbo65mt2onw72" path="res://peelable.tscn" id="3_16pka"]
+[ext_resource type="PackedScene" uid="uid://dgdxk1rqqvko3" path="res://pause.tscn" id="7_fmu3g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_16pka"]
 size = Vector2(32, 56)
@@ -75,6 +76,8 @@ metadata/_edit_group_ = true
 position = Vector2(0, 7)
 shape = SubResource("RectangleShape2D_16pka")
 
+[node name="Pause" parent="." instance=ExtResource("7_fmu3g")]
+
 [connection signal="peel_corner_entered" from="Peelable" to="Player" method="_on_peelable_peel_corner_entered"]
 [connection signal="peel_corner_exited" from="Peelable" to="Player" method="_on_peelable_peel_corner_exited"]
 [connection signal="peel_corner_entered" from="Peelable2" to="Player" method="_on_peelable_peel_corner_entered"]
@@ -84,6 +87,8 @@ shape = SubResource("RectangleShape2D_16pka")
 [connection signal="reached_exit" from="Player" to="." method="_on_player_reached_exit"]
 [connection signal="body_entered" from="Final Goal" to="Player" method="_on_final_goal_body_entered"]
 [connection signal="body_exited" from="Final Goal" to="Player" method="_on_final_goal_body_exited"]
+[connection signal="level_quit" from="Pause" to="." method="_on_pause_level_quit"]
+[connection signal="level_reset" from="Pause" to="." method="_on_pause_level_reset"]
 
 [editable path="Peelable"]
 [editable path="Peelable2"]
