@@ -12,7 +12,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_16pka"]
 size = Vector2(32, 56)
 
-[node name="Level3" type="Node"]
+[node name="Level 3" type="Node"]
 script = ExtResource("1_j8bo8")
 next_level = ExtResource("2_1jdk1")
 

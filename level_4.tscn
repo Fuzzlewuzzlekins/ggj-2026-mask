@@ -2,7 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://s7boivlsn4dd" path="res://level_tileset.tres" id="1_5pu08"]
 [ext_resource type="Script" uid="uid://bc2yh5x3gie7b" path="res://level.gd" id="1_48hld"]
-[ext_resource type="PackedScene" uid="uid://bh1qwsnp1jxsx" path="res://main.tscn" id="2_l45re"]
+[ext_resource type="PackedScene" uid="uid://bvr78butw2rf2" path="res://level_5.tscn" id="2_c8stx"]
 [ext_resource type="PackedScene" uid="uid://bbo65mt2onw72" path="res://peelable.tscn" id="2_na6m6"]
 [ext_resource type="PackedScene" uid="uid://jqqu0tnxawit" path="res://player.tscn" id="3_xcfcc"]
 [ext_resource type="Texture2D" uid="uid://dkgidognjjxs8" path="res://assets/environment/sky_overlay.png" id="4_aqy51"]
@@ -15,7 +15,7 @@ size = Vector2(32, 56)
 
 [node name="Level 4" type="Node"]
 script = ExtResource("1_48hld")
-next_level = ExtResource("2_l45re")
+next_level = ExtResource("2_c8stx")
 
 [node name="TileMaps" type="Node" parent="."]
 
@@ -50,6 +50,10 @@ tile_map_data = PackedByteArray("AAACAAIAAAAEAAIAAAACAAEAAAAEAAEAAAACAAAAAAAEAAA
 [node name="PeelTarget" parent="Peelable" index="2"]
 position = Vector2(152, -40)
 
+[node name="Peelable2" parent="." node_paths=PackedStringArray("HIDDEN_NODE_HITBOX") instance=ExtResource("2_na6m6")]
+position = Vector2(920, 400)
+HIDDEN_NODE_HITBOX = NodePath("../Final Goal/CollisionShape2D")
+
 [node name="EnemyEraser" parent="." instance=ExtResource("5_c8stx")]
 position = Vector2(796, 416)
 
@@ -74,7 +78,10 @@ autoplay = true
 
 [connection signal="peel_corner_entered" from="Peelable" to="Player" method="_on_peelable_peel_corner_entered"]
 [connection signal="peel_corner_exited" from="Peelable" to="Player" method="_on_peelable_peel_corner_exited"]
+[connection signal="peel_corner_entered" from="Peelable2" to="Player" method="_on_peelable_peel_corner_entered"]
+[connection signal="peel_corner_exited" from="Peelable2" to="Player" method="_on_peelable_peel_corner_exited"]
 [connection signal="peel_local" from="Player" to="Peelable" method="_on_player_peel_local"]
+[connection signal="peel_local" from="Player" to="Peelable2" method="_on_player_peel_local"]
 [connection signal="reached_exit" from="Player" to="." method="_on_player_reached_exit"]
 [connection signal="body_entered" from="Final Goal" to="Player" method="_on_final_goal_body_entered"]
 [connection signal="body_exited" from="Final Goal" to="Player" method="_on_final_goal_body_exited"]
@@ -82,3 +89,4 @@ autoplay = true
 [connection signal="level_reset" from="Pause" to="." method="_on_pause_level_reset"]
 
 [editable path="Peelable"]
+[editable path="Peelable2"]
