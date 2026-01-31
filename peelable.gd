@@ -45,3 +45,7 @@ func _on_player_peel_local(peel_instance: Node2D) -> void:
 		$HiddenTiles.collision_enabled = true
 		if HIDDEN_NODE_HITBOX:
 			HIDDEN_NODE_HITBOX.disabled = false
+
+
+func _on_peel_corner_exited() -> void:
+	pass # Replace with function body.
