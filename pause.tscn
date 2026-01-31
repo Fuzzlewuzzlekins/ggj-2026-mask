@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dgdxk1rqqvko3"]
+[gd_scene load_steps=7 format=3 uid="uid://dgdxk1rqqvko3"]
 
 [ext_resource type="Script" uid="uid://cyjurxgihynak" path="res://pause.gd" id="1_45vjg"]
+[ext_resource type="Theme" uid="uid://c2brsslwt3370" path="res://new_theme.tres" id="2_aq7p1"]
 
 [sub_resource type="InputEventAction" id="InputEventAction_45vjg"]
 action = &"pause_game"
@@ -18,8 +19,9 @@ events = [SubResource("InputEventAction_aq7p1")]
 script = ExtResource("1_45vjg")
 
 [node name="PauseButton" type="Button" parent="."]
-offset_right = 8.0
-offset_bottom = 8.0
+offset_right = 64.0
+offset_bottom = 42.0
+theme = ExtResource("2_aq7p1")
 shortcut = SubResource("Shortcut_aq7p1")
 text = "Pause"
 
@@ -30,6 +32,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_aq7p1")
 color = Color(0, 0, 0, 0.26666668)
 
 [node name="PanelContainer" type="PanelContainer" parent="PauseMenu"]
@@ -41,8 +44,8 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -77.0
 offset_top = -50.5
-offset_right = 77.0
-offset_bottom = 50.5
+offset_right = 108.0
+offset_bottom = 269.5
 grow_horizontal = 2
 grow_vertical = 2
 
