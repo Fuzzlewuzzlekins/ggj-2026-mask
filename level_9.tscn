@@ -45,6 +45,9 @@ position = Vector2(336, 688)
 [node name="Final Goal" parent="." index="6"]
 position = Vector2(528, 408)
 
+[node name="Pause" parent="." index="8"]
+visible = true
+
 [connection signal="peel_corner_entered" from="Peelable" to="Player" method="_on_peelable_peel_corner_entered"]
 [connection signal="peel_corner_exited" from="Peelable" to="Player" method="_on_peelable_peel_corner_exited"]
 [connection signal="peel_local" from="Player" to="Peelable" method="_on_player_peel_local"]
