@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpb8keowxk2dw"]
+
+[ext_resource type="Script" uid="uid://c8dc1rnfwhl43" path="res://credits.gd" id="1_c1t8d"]
+[ext_resource type="Theme" uid="uid://c2brsslwt3370" path="res://new_theme.tres" id="1_nm7lk"]
+
+[node name="Credits" type="Node"]
+script = ExtResource("1_c1t8d")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.5
+offset_top = -50.5
+offset_right = 80.5
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_nm7lk")
+theme_override_font_sizes/font_size = 96
+text = "test"
+horizontal_alignment = 1
