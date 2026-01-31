@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://3rjrhi2fk5kw"]
+[gd_scene load_steps=10 format=4 uid="uid://3rjrhi2fk5kw"]
 
 [ext_resource type="Script" uid="uid://bc2yh5x3gie7b" path="res://level.gd" id="1_n7ypv"]
 [ext_resource type="TileSet" uid="uid://s7boivlsn4dd" path="res://level_tileset.tres" id="2_0s5r2"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bbo65mt2onw72" path="res://peelable.tscn" id="3_7j8ne"]
 [ext_resource type="PackedScene" uid="uid://jqqu0tnxawit" path="res://player.tscn" id="4_7dov7"]
 [ext_resource type="PackedScene" uid="uid://dgdxk1rqqvko3" path="res://pause.tscn" id="5_ehv2h"]
+[ext_resource type="AudioStream" uid="uid://buo2ylramn42r" path="res://assets/audio/tapeland_theme.ogg" id="8_7dov7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j8bo8"]
 size = Vector2(32, 56)
@@ -65,6 +66,10 @@ position = Vector2(0, 7)
 shape = SubResource("RectangleShape2D_j8bo8")
 
 [node name="Pause" parent="." instance=ExtResource("5_ehv2h")]
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_7dov7")
+autoplay = true
 
 [connection signal="peel_corner_entered" from="Peelable" to="Player" method="_on_peelable_peel_corner_entered"]
 [connection signal="peel_corner_exited" from="Peelable" to="Player" method="_on_peelable_peel_corner_exited"]
