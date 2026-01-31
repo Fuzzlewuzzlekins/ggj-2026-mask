@@ -130,11 +130,9 @@ func _on_peelable_peel_corner_entered(body: Node2D, peel_instance: Node2D) -> vo
 	if self == body:
 		peel_corner_touching = peel_instance
 
-
 func _on_peelable_peel_corner_exited(body: Node2D, peel_instance: Node2D) -> void:
 	if self == body and peel_corner_touching == peel_instance:
 		peel_corner_touching = null
-
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	# Handles dudes killin' us
