@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=4 uid="uid://duyhho5uayisv"]
+[gd_scene load_steps=7 format=4 uid="uid://duyhho5uayisv"]
 
 [ext_resource type="PackedScene" uid="uid://bs6w6ooqbq2vm" path="res://level_template.tscn" id="1_fxc0e"]
 [ext_resource type="PackedScene" uid="uid://b8un4nvx2614r" path="res://level_10.tscn" id="2_7i33c"]
 [ext_resource type="Texture2D" uid="uid://d3g2nbxs125yd" path="res://assets/environment/castle_overlay.png" id="2_aab6h"]
 [ext_resource type="PackedScene" uid="uid://bbo65mt2onw72" path="res://peelable.tscn" id="3_4y126"]
 [ext_resource type="PackedScene" uid="uid://bcwlg331iv2wr" path="res://enemy_eraser.tscn" id="4_7i33c"]
+[ext_resource type="Texture2D" uid="uid://b5t8k7hp6x4y3" path="res://assets/environment/level_9_peel.png" id="6_xx8ku"]
 
 [node name="Level 9" instance=ExtResource("1_fxc0e")]
 next_level = ExtResource("2_7i33c")
@@ -25,7 +26,7 @@ tile_map_data = PackedByteArray("AAA/ACEAAAACAAQAAAA/ACAAAAACAAQAAAA/AB8AAAACAAQ
 position = Vector2(304, 336)
 
 [node name="HiddenTiles" parent="Peelable" index="0"]
-tile_map_data = PackedByteArray("AAD7//v/AAAAAAEABwD7//z/AAAAAAEABwD7//3/AAAAAAEABwD7//7/AAAAAAEABwD7////AAAAAAEABwD7/wAAAAAAAAEABwD7/wEAAAAAAAEABwD7/wIAAAAAAAEABwD7/wMAAAAAAAEABwD7/wQAAAAAAAEABwD7/wUAAAAAAAEABwD7/wYAAAAAAAIABwD7//n/AAAAAAAACQD7//r/AAAAAAEABwD8//n/AAABAAAABgD8//r/AAABAAEABQD8//v/AAABAAEABQD8//z/AAABAAEABQD8//3/AAABAAEABQD8//7/AAABAAEABQD8////AAABAAEABQD8/wAAAAABAAEABQD8/wEAAAABAAEABQD8/wIAAAABAAEABQD8/wMAAAABAAEABQD8/wQAAAABAAEABQD8/wUAAAABAAEABQD8/wYAAAABAAIABQD9//n/AAACAAAABQD9//r/AAACAAEABQD9//v/AAACAAEABQD9//z/AAACAAEABQD9//3/AAACAAEABQD9//7/AAACAAEABQD9////AAACAAEABQD9/wAAAAACAAEABQD9/wEAAAACAAEABQD9/wIAAAACAAEABQD9/wMAAAACAAEABQD9/wQAAAACAAEABQD9/wUAAAACAAEABQD9/wYAAAACAAIABQA=")
+tile_map_data = PackedByteArray("AAD7//v/AAAAAAEABwD7//z/AAAAAAEABwD7//3/AAAAAAEABwD7//7/AAAAAAEABwD7////AAAAAAEABwD7/wAAAAAAAAEABwD7/wEAAAAAAAEABwD7/wIAAAAAAAEABwD7/wMAAAAAAAEABwD7/wQAAAAAAAEABwD7/wUAAAAAAAEABwD7/wYAAAAAAAEABwD7//n/AAAAAAAACQD7//r/AAAAAAEABwD8//n/AAABAAAABgD8//r/AAABAAEABQD8//v/AAABAAEABQD8//z/AAABAAEABQD8//3/AAABAAEABQD8//7/AAABAAEABQD8////AAABAAEABQD8/wAAAAABAAEABQD8/wEAAAABAAEABQD8/wIAAAABAAEABQD8/wMAAAABAAEABQD8/wQAAAABAAEABQD8/wUAAAABAAEABQD8/wYAAAABAAEABQD9//n/AAACAAAABQD9//r/AAACAAEABQD9//v/AAACAAEABQD9//z/AAACAAEABQD9//3/AAACAAEABQD9//7/AAACAAEABQD9////AAACAAEABQD9/wAAAAACAAEABQD9/wEAAAACAAEABQD9/wIAAAACAAEABQD9/wMAAAACAAEABQD9/wQAAAACAAEABQD9/wUAAAACAAEABQD9/wYAAAACAAEABQA=")
 
 [node name="PeelMask" parent="Peelable" index="1"]
 polygon = PackedVector2Array(-80, -120, 80, -112, 80, 120, -80, 112)
@@ -44,6 +45,12 @@ position = Vector2(336, 688)
 
 [node name="Final Goal" parent="." index="6"]
 position = Vector2(528, 408)
+
+[node name="LevelPeel Sprite" parent="LevelPeel" index="0"]
+texture = ExtResource("6_xx8ku")
+
+[node name="Pause" parent="." index="8"]
+visible = true
 
 [connection signal="peel_corner_entered" from="Peelable" to="Player" method="_on_peelable_peel_corner_entered"]
 [connection signal="peel_corner_exited" from="Peelable" to="Player" method="_on_peelable_peel_corner_exited"]
